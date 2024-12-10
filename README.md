@@ -3,10 +3,10 @@
 | Nama              | NRP        |
 | ----------------- | ---------- |
 | Irfan Qobus Salim | 5027221058 |
-|                   | 50272310   |
-|                   | 50272310   |
-|                   | 50272310   |
-|                   | 50272310   |
+| Dzaky Faiq Fayyadhi | 5027231047 |
+| M. Abhinaya Al Faruqi | 5027231011 |
+| Adi Satria Pangestu | 5027231043 |
+| Aras Rizki Ananta | 5027221053 |
 
 ## 1. Topologi
 ![topofp](https://github.com/user-attachments/assets/f8d8824a-872c-4e44-9be2-c375cff211af)
@@ -50,6 +50,43 @@ Pembagian IP dilakukan dengan menggunakan metode VLSM
 | A13    | 10.58.1.220 | 255.255.255.252 | 10.58.1.223 | 10.58.1.221 - 10.58.1.222 |
 
 ## 3. Konfigurasi Router dan Client
+**Note:** Semua IP pada client diatur secara static, kecuali pada Lantai 2
+
+- **Konfigurasi Router**
+ 
+![image](https://github.com/user-attachments/assets/e2ab6d5e-2667-42ea-a9c1-1d48fe334d9c)
+
+![image](https://github.com/user-attachments/assets/871018f5-3341-48b7-97d3-6f70865a503f)
+
+![image](https://github.com/user-attachments/assets/c1622fc8-8b15-40cc-8faa-969fb67fb38b)
+
+![image](https://github.com/user-attachments/assets/92e08a06-0593-4bbc-b202-9780c548d264)
+
+![image](https://github.com/user-attachments/assets/167826f3-0f60-450a-8566-4dcdc2f832d8)
+
+![image](https://github.com/user-attachments/assets/4c0902d7-7041-4a90-9eb1-96fd5397e897)
+
+![image](https://github.com/user-attachments/assets/e6e6f9a6-1e8a-4469-8105-13e447556d57)
+
+![image](https://github.com/user-attachments/assets/8c0a58e5-bd96-418a-91f6-c8f6432db05e)
+
+- **Konfigurasi DHCP Server pada Lantai 2**
+
+![image](https://github.com/user-attachments/assets/82be5d28-3475-4f84-be5b-5f7764e12f0d)
+
+- **Konfigurasi Client**
+  
+![image](https://github.com/user-attachments/assets/6553cd90-bdfe-4de9-a7db-9f45fc71166e)
+
+![image](https://github.com/user-attachments/assets/2b0b48fd-a6ff-490c-b6d1-c0a553c26148)
+
+![image](https://github.com/user-attachments/assets/677e3982-2782-4d85-b638-c6d39f2b3030)
+
+![image](https://github.com/user-attachments/assets/3afff769-8ad4-4a3b-bce8-6335707674b6)
+
+![image](https://github.com/user-attachments/assets/8ea1bfdb-6ae8-450e-8a35-4aa79cc094b4)
+
+![image](https://github.com/user-attachments/assets/b9d874a9-9887-4765-b8cc-b732e6a7ed77)
 
 ## 4. Routing
 **Note:** Default route diperlukan hanya untuk koneksi ke internet saja. Apabila default route dihapus, routing berjalan dengan baik ke semua node
@@ -72,6 +109,20 @@ Pembagian IP dilakukan dengan menggunakan metode VLSM
 ![image](https://github.com/user-attachments/assets/7a350106-d470-4be0-b340-4bdf909b3868)
 
 ## 5. NAT
+NAT diatur pada Router NAT agar dapat melakukan ping ke 8.8.8.8
+
+![image](https://github.com/user-attachments/assets/76ad9323-a1eb-4672-8c01-88a2c205adaf)
+
+Agar semua client dan router pada gedung utama dapat melakukan ping ke 8.8.8.8, kita perlu mengatur NAT pada Lantai 5 dan juga menetapkan default route untuk tiap router
+
+![image](https://github.com/user-attachments/assets/22bd0c20-29be-4c24-96ea-9f6712a398e1)
+
+
+**Testing**
+
+![image](https://github.com/user-attachments/assets/82e59846-b0bd-4ba9-871d-7aed25054924)
+
+![image](https://github.com/user-attachments/assets/fdf626f9-5427-4fad-8a7e-c7f0409ee3ed)
 
 ## 6. GRE Tunnel
 GRE Tunnel dibuat untuk menghubungkan **Router Cabang** dan **Lantai 5**
@@ -85,6 +136,7 @@ Pada Lantai 5, tunnel source diarahkan ke Fa1/0 dan tunnel destination mengarah 
 Karena kita menggunakan ip static dan bukan dhcp, kita perlu melakukan routing subnet dari Router Cabang dan Lantai 5 (sudah ditunjukkan di tahap Routing).
 
 **Testing**
+
 ![image](https://github.com/user-attachments/assets/acc61b0f-49d2-4963-b7c2-288157c20413)
 ![image](https://github.com/user-attachments/assets/6c205479-4e06-428c-a0fc-04cd4e5561b6)
 
